@@ -147,7 +147,7 @@ def analyze_workflow_content(content, filename="workflow.yml"):
 def main():
     parser = argparse.ArgumentParser(description="TAVARDT CI/CD Security Auditor CLI")
     parser.add_argument("path", help="Caminho do arquivo YAML ou diretório de workflows (.github/workflows)")
-    parser.add_argument("--json", action="store_true", help="Emitir relatório estruturado em formato JSON")
+    parser.add_argument("-json", "--json", action="store_true", help="Emitir relatório estruturado em formato JSON")
     args = parser.parse_args()
 
     target_path = args.path
