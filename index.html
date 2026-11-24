@@ -1,75 +1,62 @@
 <!DOCTYPE html>
+
 <html lang="pt-PT">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Auditoria de Segurança CI/CD & Hardening de Software Supply Chain | TAVARDT Portugal</title>
-  <meta name="description" content="Guia técnico corporativo de arquitetura defensiva, imunização de pipelines (GitHub Actions, GitLab CI), mitigação de gatilhos perigosos (pull_request_target) e ferramental CLI determinístico.">
-  <link rel="canonical" href="https://tavardt-portugal.github.io/ci-cd-security-auditor-pt/">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Auditoria de Segurança CI/CD &amp; Hardening de Software Supply Chain | TAVARDT Portugal</title>
+<meta content="Guia técnico corporativo de arquitetura defensiva, imunização de pipelines (GitHub Actions, GitLab CI), mitigação de gatilhos perigosos (pull_request_target) e ferramental CLI determinístico." name="description"/>
+<link href="https://tavardt-portugal.github.io/ci-cd-security-auditor-pt/" rel="canonical"/>
+<link href="./favicon.ico" rel="icon" type="image/x-icon"/>
 
-  
-  <link rel="icon" type="image/x-icon" href="./favicon.ico">
-  <link rel="shortcut icon" href="./favicon.ico">
-  <link rel="apple-touch-icon" href="./favicon.ico">
 
-  
-  <link rel="alternate" hreflang="pt-BR" href="https://tavardt-brasil.github.io/ci-cd-security-auditor-br/">
-  <link rel="alternate" hreflang="pt-PT" href="https://tavardt-portugal.github.io/ci-cd-security-auditor-pt/">
-  <link rel="alternate" hreflang="en-US" href="https://tavardt-usa.github.io/ci-cd-security-auditor-us/">
-  <link rel="alternate" hreflang="en-GB" href="https://tavardt-uk.github.io/ci-cd-security-auditor-uk/">
-  <link rel="alternate" hreflang="en-CA" href="https://tavardt-canada.github.io/ci-cd-security-auditor-ca/">
-  <link rel="alternate" hreflang="en-AU" href="https://tavardt-australia.github.io/ci-cd-security-auditor-au/">
-  <link rel="alternate" hreflang="en-NZ" href="https://tavardt-new-zealand.github.io/ci-cd-security-auditor-nz/">
-  <link rel="alternate" hreflang="es-ES" href="https://tavardt-espana.github.io/ci-cd-security-auditor-es/">
-  <link rel="alternate" hreflang="es-MX" href="https://tavardt-mexico.github.io/ci-cd-security-auditor-mx/">
-  <link rel="alternate" hreflang="fr-FR" href="https://tavardt-france.github.io/ci-cd-security-auditor-fr/">
-  <link rel="alternate" hreflang="it-IT" href="https://tavardt-italia.github.io/ci-cd-security-auditor-it/">
-  <link rel="alternate" hreflang="x-default" href="https://tavardt-usa.github.io/ci-cd-security-auditor-us/">
 
-  
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-  <meta name="ai-content-declaration" content="citable-security-tool">
+<link href="https://tavardt-portugal.github.io/ci-cd-security-auditor-pt/" hreflang="pt-PT" rel="alternate"/>
 
-  
-  <meta name="geo.region" content="PT">
-  <meta name="geo.placename" content="Portugal">
-  <meta name="geo.position" content="38.7223;-9.1393">
-  <meta name="ICBM" content="38.7223, -9.1393">
 
-  
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="TAVARDT Portugal">
-  <meta property="og:title" content="Auditoria de Segurança CI/CD & Hardening de Software Supply Chain | TAVARDT Portugal">
-  <meta property="og:description" content="Guia técnico corporativo de arquitetura defensiva, imunização de pipelines (GitHub Actions, GitLab CI), mitigação de gatilhos perigosos (pull_request_target) e ferramental CLI determinístico.">
-  <meta property="og:url" content="https://tavardt-portugal.github.io/ci-cd-security-auditor-pt/">
-  <meta property="og:image" content="https://tavardt-portugal.github.io/ci-cd-security-auditor-pt/og-image.jpg">
-  <meta property="og:image:secure_url" content="https://tavardt-portugal.github.io/ci-cd-security-auditor-pt/og-image.jpg">
-  <meta property="og:image:type" content="image/jpeg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Auditoria de Segurança CI/CD & Hardening de Software Supply Chain | TAVARDT Portugal">
-  <meta property="og:locale" content="pt_PT">
-  <meta property="og:locale:alternate" content="pt_BR">
-  <meta property="og:locale:alternate" content="en_US">
-  <meta property="og:locale:alternate" content="en_GB">
-  <meta property="og:locale:alternate" content="en_CA">
-  <meta property="og:locale:alternate" content="en_AU">
-  <meta property="og:locale:alternate" content="en_NZ">
-  <meta property="og:locale:alternate" content="es_ES">
-  <meta property="og:locale:alternate" content="es_MX">
-  <meta property="og:locale:alternate" content="fr_FR">
-  <meta property="og:locale:alternate" content="it_IT">
 
-  
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@tavardt">
-  <meta name="twitter:title" content="Auditoria de Segurança CI/CD & Hardening de Software Supply Chain | TAVARDT Portugal">
-  <meta name="twitter:description" content="Guia técnico corporativo de arquitetura defensiva, imunização de pipelines (GitHub Actions, GitLab CI), mitigação de gatilhos perigosos (pull_request_target) e ferramental CLI determinístico.">
-  <meta name="twitter:image" content="https://tavardt-portugal.github.io/ci-cd-security-auditor-pt/og-image.jpg">
-  <meta name="twitter:image:alt" content="Auditoria de Segurança CI/CD & Hardening de Software Supply Chain | TAVARDT Portugal">
 
-  
-  <script type="application/ld+json">
+
+
+
+
+
+<link href="https://tavardt-usa.github.io/ci-cd-security-auditor-us/" hreflang="x-default" rel="alternate"/>
+<meta content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" name="robots"/>
+<meta content="citable-security-tool" name="ai-content-declaration"/>
+<meta content="PT" name="geo.region"/>
+<meta content="Portugal" name="geo.placename"/>
+<meta content="38.7223;-9.1393" name="geo.position"/>
+<meta content="38.7223, -9.1393" name="ICBM"/>
+<meta content="website" property="og:type"/>
+<meta content="TAVARDT Portugal" property="og:site_name"/>
+<meta content="Auditoria de Segurança CI/CD &amp; Hardening de Software Supply Chain | TAVARDT Portugal" property="og:title"/>
+<meta content="Guia técnico corporativo de arquitetura defensiva, imunização de pipelines (GitHub Actions, GitLab CI), mitigação de gatilhos perigosos (pull_request_target) e ferramental CLI determinístico." property="og:description"/>
+<meta content="https://tavardt-portugal.github.io/ci-cd-security-auditor-pt/" property="og:url"/>
+<meta content="https://tavardt-portugal.github.io/ci-cd-security-auditor-pt/og-image.jpg" property="og:image"/>
+<meta content="https://tavardt-portugal.github.io/ci-cd-security-auditor-pt/og-image.jpg" property="og:image:secure_url"/>
+<meta content="image/jpeg" property="og:image:type"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="Auditoria de Segurança CI/CD &amp; Hardening de Software Supply Chain | TAVARDT Portugal" property="og:image:alt"/>
+<meta content="pt_PT" property="og:locale"/>
+
+
+
+
+
+
+
+
+
+
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="@tavardt" name="twitter:site"/>
+<meta content="Auditoria de Segurança CI/CD &amp; Hardening de Software Supply Chain | TAVARDT Portugal" name="twitter:title"/>
+<meta content="Guia técnico corporativo de arquitetura defensiva, imunização de pipelines (GitHub Actions, GitLab CI), mitigação de gatilhos perigosos (pull_request_target) e ferramental CLI determinístico." name="twitter:description"/>
+<meta content="https://tavardt-portugal.github.io/ci-cd-security-auditor-pt/og-image.jpg" name="twitter:image"/>
+<meta content="Auditoria de Segurança CI/CD &amp; Hardening de Software Supply Chain | TAVARDT Portugal" name="twitter:image:alt"/>
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
@@ -200,17 +187,14 @@
     ]
   }
   </script>
-
-  
-  <link rel="preconnect" href="https://www.googletagmanager.com">
-  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+<link href="https://www.googletagmanager.com" rel="preconnect"/>
+<link href="https://www.googletagmanager.com" rel="dns-prefetch"/>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-5B6QSTN5');</script>
-
-  <style>
+<style>
     * {
       box-sizing: border-box;
       margin: 0;
@@ -997,244 +981,225 @@
   </style>
 </head>
 <body>
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5B6QSTN5"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
-  <header class="tavardt-header">
-    <div class="tavardt-header-inner">
-      <a class="tavardt-brand" href="https://ag.tavardt.com/pt/" rel="noopener" target="_blank">
-        <span class="tavardt-logo-text">TAVARDT<span class="tavardt-brand-dot">.</span></span>
-      </a>
-      <nav class="tavardt-nav">
-        <a class="tavardt-nav-link" href="https://ag.tavardt.com/pt/" rel="noopener" target="_blank">Portal</a>
-        <a class="tavardt-nav-link" href="https://tools.tavardt.com/pt/" rel="noopener" target="_blank">Ferramentas</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="tavardt-main">
-    <section class="hero-section">
-      <h1 class="hero-title">Auditoria de Segurança CI/CD &amp; Hardening de Software Supply Chain</h1>
-      <p class="hero-subtitle">Guia técnico corporativo de arquitetura defensiva, imunização de pipelines (GitHub Actions, GitLab CI), mitigação de gatilhos perigosos (pull_request_target) e ferramental CLI para auditoria determinística de código.</p>
-    </section>
-
-    <div class="cli-card">
-      <div class="cli-header">
-        <div class="cli-dots">
-          <span class="dot red"></span>
-          <span class="dot yellow"></span>
-          <span class="dot green"></span>
-          <span class="cli-title">Testes em terminal Local CLI</span>
-        </div>
-        <button class="btn-copy" id="btn-copy-cli" onclick="copyCliCommand()" type="button">Copiar</button>
-      </div>
-      <div class="cli-body">
-        <p class="cli-desc">Para inspecionar seus manifestos YAML de CI/CD de forma determinística, sem restrições de sandbox de navegador ou limitações de interface, execute o utilitário oficial em Python diretamente no seu terminal ou esteira:</p>
-        <div class="cli-code-terminal" id="cli-terminal-code"><span class="cli-comment"># 1. Obter o script de auditoria no repositório oficial</span>
+<noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-5B6QSTN5" style="display:none;visibility:hidden" width="0"></iframe></noscript>
+<header class="tavardt-header">
+<div class="tavardt-header-inner">
+<a class="tavardt-brand" href="https://ag.tavardt.com/pt/" rel="noopener" target="_blank">
+<span class="tavardt-logo-text">TAVARDT<span class="tavardt-brand-dot">.</span></span>
+</a>
+<nav class="tavardt-nav">
+<a class="tavardt-nav-link" href="https://ag.tavardt.com/pt/" rel="noopener" target="_blank">Portal</a>
+<a class="tavardt-nav-link" href="https://tools.tavardt.com/pt/" rel="noopener" target="_blank">Ferramentas</a>
+</nav>
+</div>
+</header>
+<main class="tavardt-main">
+<section class="hero-section">
+<h1 class="hero-title">Auditoria de Segurança CI/CD &amp; Hardening de Software Supply Chain</h1>
+<p class="hero-subtitle">Guia técnico corporativo de arquitetura defensiva, imunização de pipelines (GitHub Actions, GitLab CI), mitigação de gatilhos perigosos (pull_request_target) e ferramental CLI para auditoria determinística de código.</p>
+</section>
+<div class="cli-card">
+<div class="cli-header">
+<div class="cli-dots">
+<span class="dot red"></span>
+<span class="dot yellow"></span>
+<span class="dot green"></span>
+<span class="cli-title">Testes em terminal Local CLI</span>
+</div>
+<button class="btn-copy" id="btn-copy-cli" onclick="copyCliCommand()" type="button">Copiar</button>
+</div>
+<div class="cli-body">
+<p class="cli-desc">Para inspecionar seus manifestos YAML de CI/CD de forma determinística, sem restrições de sandbox de navegador ou limitações de interface, execute o utilitário oficial em Python diretamente no seu terminal ou esteira:</p>
+<div class="cli-code-terminal" id="cli-terminal-code"><span class="cli-comment"># 1. Obter o script de auditoria no repositório oficial</span>
 curl -sO https://raw.githubusercontent.com/TAVARDT-Portugal/ci-cd-security-auditor-pt/main/audit_ci_cd_security.py
 
 <span class="cli-comment"># 2. Executar auditoria direta contra o diretório de workflows da sua aplicação</span>
 python audit_ci_cd_security.py .github/workflows/</div>
-        <div class="cli-features">
-          <span class="cli-feature-tag"><strong>Inspeção Determinística:</strong> Workflows, Triggers e Permissões</span>
-          <span class="cli-feature-tag"><strong>Proteção de Segredos:</strong> Detecta pull_request_target e write-all</span>
-          <span class="cli-feature-tag"><strong>Zero Simulação:</strong> Parser estrutural e regras CIS Supply Chain</span>
-        </div>
-      </div>
-    </div>
-
-    <section class="matrix-section">
-      <h2 class="section-title">Diagnóstico Arquitetural: Pipeline CI/CD Padrão vs. Blindado</h2>
-      <p class="section-subtitle">Selecione uma das posturas arquiteturais para compreender como as configurações de pipeline e privilégios de execução impactam a segurança do repositório:</p>
-
-      <div class="matrix-tabs">
-        <button class="matrix-tab-btn active vuln" id="tab-scenario-vuln" onclick="switchScenario('vuln')" type="button">1. Pipeline CI/CD Padrão (Vulnerável)</button>
-        <button class="matrix-tab-btn hard" id="tab-scenario-hard" onclick="switchScenario('hard')" type="button">2. Pipeline Blindado (Padrão TAVARDT Zero Trust)</button>
-      </div>
-
-      <div class="posture-display-card">
-        <div class="posture-status-row">
-          <span class="posture-badge badge-vuln" id="posture-badge">POSTURA PADRÃO: VULNERÁVEL A RCE &amp; ROUBO DE SEGREDO CORPORATIVO</span>
-          <span class="posture-mode-tag" id="posture-mode-tag">Configuração Insegura Com Permissões Globais Excessivas</span>
-        </div>
-        <p class="posture-summary" id="posture-summary">Pipelines convencionais frequentemente utilizam permissões globais irrestritas (write-all), disparam jobs privilegiados através de pull_request_target com checkout de código externo e consomem actions de terceiros sem fixação estrita por commit SHA, viabilizando ataques diretos de Supply Chain.</p>
-
-        <div class="routes-box">
-          <div class="routes-header">
-            <span>Mapeamento de Vetores Críticos de Supply Chain</span>
-            <span id="routes-summary-count">4 Vetores Mapeados</span>
-          </div>
-          <table class="routes-table">
-            <thead>
-              <tr>
-                <th>VETOR / SUPERFÍCIE DE ATAQUE</th>
-                <th>CONFIGURAÇÃO OBSERVADA</th>
-                <th>COMPORTAMENTO DO PIPELINE</th>
-                <th>POSTURA DE SEGURANÇA</th>
-              </tr>
-            </thead>
-            <tbody id="routes-tbody">
-            </tbody>
-          </table>
-        </div>
-
-        <div class="findings-header">
-          <span>Diretrizes e Controles Arquiteturais</span>
-          <span id="findings-count" style="color: #ef4444;">3 Vulnerabilidades Ativas</span>
-        </div>
-        <div class="findings-list" id="findings-list">
-        </div>
-      </div>
-    </section>
-
-    <section class="blueprints-section">
-      <h2 class="section-title">Blueprints de Mitigação &amp; Configurações de Servidor</h2>
-      <p class="section-subtitle">Selecione o arquivo de configuração para visualizar e copiar manifestos blindados prontos para aplicação imediata:</p>
-
-      <div class="code-mobile-controls">
-        <select class="code-select-mobile" id="code-select-mobile" onchange="switchCodeTab(this.value)">
-          <option value="actions">hardened-workflow.yml (GitHub Actions)</option>
-          <option value="gitlab">gitlab-ci.yml (Hardening)</option>
-          <option value="egress">step-security-harden.yml (Egress)</option>
-          <option value="pinning">action-pinning.sh (Script de Pinning)</option>
-          <option value="cli">audit_ci_cd_security.py (CLI)</option>
-        </select>
-        <button class="btn-copy-mobile" id="btn-copy-code-mobile" onclick="copyCode()" type="button">Copiar</button>
-      </div>
-
-      <div class="code-tabs-nav">
-        <div class="code-tabs-group">
-          <button class="code-tab active" data-tab="actions" onclick="switchCodeTab('actions')" type="button">hardened-workflow.yml (GitHub Actions)</button>
-          <button class="code-tab" data-tab="gitlab" onclick="switchCodeTab('gitlab')" type="button">gitlab-ci.yml (Hardening)</button>
-          <button class="code-tab" data-tab="egress" onclick="switchCodeTab('egress')" type="button">step-security-harden.yml (Egress)</button>
-          <button class="code-tab" data-tab="pinning" onclick="switchCodeTab('pinning')" type="button">action-pinning.sh (Script de Pinning)</button>
-          <button class="code-tab" data-tab="cli" onclick="switchCodeTab('cli')" type="button">audit_ci_cd_security.py (CLI)</button>
-        </div>
-        <button class="btn-copy" id="btn-copy-code" onclick="copyCode()" type="button">Copiar</button>
-      </div>
-
-      <pre class="code-viewer-box" id="code-box"></pre>
-    </section>
-
-    <section class="aeo-section">
-      <div class="aeo-badge">PADRÃO DE SEGURANÇA DEFENSIVA<br class="mobile-only"> PARA PIPELINES CI/CD</div>
-      <h2 class="aeo-title">O que é a Superfície de Risco em Pipelines de CI/CD e Software Supply Chain?</h2>
-      <div class="aeo-content">
-        <p>A automação de entrega contínua (CI/CD) transformou a produtividade da engenharia de software corporativa. No entanto, esteiras de automação possuem privilégios operacionais altíssimos: acesso a segredos de produção, tokens de cloud providers (AWS, GCP, Azure) e permissões de escrita direta no repositório de código. Quando um pipeline é configurado sem controles defensivos rigorosos, ele se torna o vetor preferencial de ataques de <strong>Software Supply Chain</strong>.</p>
-        <p>O vetor mais perigoso no ecossistema GitHub Actions é a utilização incorreta do gatilho <code>pull_request_target</code>. Diferente do evento <code>pull_request</code> convencional, o <code>pull_request_target</code> é executado no contexto do repositório base com acesso a todos os segredos. Ao associar esse evento a uma ação de checkout apontada para o commit do fork externo (<code>head.sha</code>), o runner executa código arbitrário enviado por qualquer invasor externo, resultando em exfiltração imediata de credenciais.</p>
-        <p>A blindagem definitiva de pipelines exige a aplicação integral de três pilares inegociáveis: a imposição de permissões mínimas no topo do arquivo (<code>permissions: contents: read</code>), o <strong>Pinning</strong> estrito de todas as actions de terceiros por commit SHA de 40 caracteres com hash imutável e a restrição de conexões de rede de saída (egress filtering) para impedir a exfiltração de dados durante a etapa de build.</p>
-
-        <div class="comparison-grid">
-          <div class="comp-col vuln">
-            <div class="comp-header">Pipeline CI/CD Vulnerável (Risco Crítico de Supply Chain)</div>
-            <ul class="comp-list">
-              <li><span class="cross">&#10006;</span> Gatilho pull_request_target com checkout de código externo não confiável.</li>
-              <li><span class="cross">&#10006;</span> Permissões write-all globais concedidas ao token de automação.</li>
-              <li><span class="cross">&#10006;</span> Actions externas consumidas via tags mutáveis (@v3, @main).</li>
-              <li><span class="cross">&#10006;</span> Injeção direta de expressões de contexto em blocos run de shell bash.</li>
-              <li><span class="cross">&#10006;</span> Tráfego irrestrito de saída do runner sem egress filtering.</li>
-            </ul>
-          </div>
-          <div class="comp-col hard">
-            <div class="comp-header">Pipeline Blindado TAVARDT (Defesa em Profundidade e Zero Trust)</div>
-            <ul class="comp-list">
-              <li><span class="check">&#10004;</span> Gatilho pull_request tradicional sem acesso a secrets corporativos.</li>
-              <li><span class="check">&#10004;</span> Bloco permissions: contents: read declarativo com menor privilégio por job.</li>
-              <li><span class="check">&#10004;</span> Todas as actions fixadas exclusivamente por commit SHA de 40 caracteres.</li>
-              <li><span class="check">&#10004;</span> Passagem obrigatória de dados de contexto via variáveis de ambiente (env:).</li>
-              <li><span class="check">&#10004;</span> Bloqueio rigoroso de conexões externas não mapeadas durante a compilação.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="faq-section">
-      <h2 class="faq-title">Perguntas Frequentes sobre Segurança CI/CD &amp; Supply Chain</h2>
-      <div class="faq-list">
-        <div class="faq-item">
-          <button class="faq-btn" onclick="toggleFaq(this)" type="button">
-            <span>Por que o gatilho pull_request_target é considerado de risco crítico no GitHub Actions?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-body">
+<div class="cli-features">
+<span class="cli-feature-tag"><strong>Inspeção Determinística:</strong> Workflows, Triggers e Permissões</span>
+<span class="cli-feature-tag"><strong>Proteção de Segredos:</strong> Detecta pull_request_target e write-all</span>
+<span class="cli-feature-tag"><strong>Zero Simulação:</strong> Parser estrutural e regras CIS Supply Chain</span>
+</div>
+</div>
+</div>
+<section class="matrix-section">
+<h2 class="section-title">Diagnóstico Arquitetural: Pipeline CI/CD Padrão vs. Blindado</h2>
+<p class="section-subtitle">Selecione uma das posturas arquiteturais para compreender como as configurações de pipeline e privilégios de execução impactam a segurança do repositório:</p>
+<div class="matrix-tabs">
+<button class="matrix-tab-btn active vuln" id="tab-scenario-vuln" onclick="switchScenario('vuln')" type="button">1. Pipeline CI/CD Padrão (Vulnerável)</button>
+<button class="matrix-tab-btn hard" id="tab-scenario-hard" onclick="switchScenario('hard')" type="button">2. Pipeline Blindado (Padrão TAVARDT Zero Trust)</button>
+</div>
+<div class="posture-display-card">
+<div class="posture-status-row">
+<span class="posture-badge badge-vuln" id="posture-badge">POSTURA PADRÃO: VULNERÁVEL A RCE &amp; ROUBO DE SEGREDO CORPORATIVO</span>
+<span class="posture-mode-tag" id="posture-mode-tag">Configuração Insegura Com Permissões Globais Excessivas</span>
+</div>
+<p class="posture-summary" id="posture-summary">Pipelines convencionais frequentemente utilizam permissões globais irrestritas (write-all), disparam jobs privilegiados através de pull_request_target com checkout de código externo e consomem actions de terceiros sem fixação estrita por commit SHA, viabilizando ataques diretos de Supply Chain.</p>
+<div class="routes-box">
+<div class="routes-header">
+<span>Mapeamento de Vetores Críticos de Supply Chain</span>
+<span id="routes-summary-count">4 Vetores Mapeados</span>
+</div>
+<table class="routes-table">
+<thead>
+<tr>
+<th>VETOR / SUPERFÍCIE DE ATAQUE</th>
+<th>CONFIGURAÇÃO OBSERVADA</th>
+<th>COMPORTAMENTO DO PIPELINE</th>
+<th>POSTURA DE SEGURANÇA</th>
+</tr>
+</thead>
+<tbody id="routes-tbody">
+</tbody>
+</table>
+</div>
+<div class="findings-header">
+<span>Diretrizes e Controles Arquiteturais</span>
+<span id="findings-count" style="color: #ef4444;">3 Vulnerabilidades Ativas</span>
+</div>
+<div class="findings-list" id="findings-list">
+</div>
+</div>
+</section>
+<section class="blueprints-section">
+<h2 class="section-title">Blueprints de Mitigação &amp; Configurações de Servidor</h2>
+<p class="section-subtitle">Selecione o arquivo de configuração para visualizar e copiar manifestos blindados prontos para aplicação imediata:</p>
+<div class="code-mobile-controls">
+<select class="code-select-mobile" id="code-select-mobile" onchange="switchCodeTab(this.value)">
+<option value="actions">hardened-workflow.yml (GitHub Actions)</option>
+<option value="gitlab">gitlab-ci.yml (Hardening)</option>
+<option value="egress">step-security-harden.yml (Egress)</option>
+<option value="pinning">action-pinning.sh (Script de Pinning)</option>
+<option value="cli">audit_ci_cd_security.py (CLI)</option>
+</select>
+<button class="btn-copy-mobile" id="btn-copy-code-mobile" onclick="copyCode()" type="button">Copiar</button>
+</div>
+<div class="code-tabs-nav">
+<div class="code-tabs-group">
+<button class="code-tab active" data-tab="actions" onclick="switchCodeTab('actions')" type="button">hardened-workflow.yml (GitHub Actions)</button>
+<button class="code-tab" data-tab="gitlab" onclick="switchCodeTab('gitlab')" type="button">gitlab-ci.yml (Hardening)</button>
+<button class="code-tab" data-tab="egress" onclick="switchCodeTab('egress')" type="button">step-security-harden.yml (Egress)</button>
+<button class="code-tab" data-tab="pinning" onclick="switchCodeTab('pinning')" type="button">action-pinning.sh (Script de Pinning)</button>
+<button class="code-tab" data-tab="cli" onclick="switchCodeTab('cli')" type="button">audit_ci_cd_security.py (CLI)</button>
+</div>
+<button class="btn-copy" id="btn-copy-code" onclick="copyCode()" type="button">Copiar</button>
+</div>
+<pre class="code-viewer-box" id="code-box"></pre>
+</section>
+<section class="aeo-section">
+<div class="aeo-badge">PADRÃO DE SEGURANÇA DEFENSIVA<br class="mobile-only"/> PARA PIPELINES CI/CD</div>
+<h2 class="aeo-title">O que é a Superfície de Risco em Pipelines de CI/CD e Software Supply Chain?</h2>
+<div class="aeo-content">
+<p>A automação de entrega contínua (CI/CD) transformou a produtividade da engenharia de software corporativa. No entanto, esteiras de automação possuem privilégios operacionais altíssimos: acesso a segredos de produção, tokens de cloud providers (AWS, GCP, Azure) e permissões de escrita direta no repositório de código. Quando um pipeline é configurado sem controles defensivos rigorosos, ele se torna o vetor preferencial de ataques de <strong>Software Supply Chain</strong>.</p>
+<p>O vetor mais perigoso no ecossistema GitHub Actions é a utilização incorreta do gatilho <code>pull_request_target</code>. Diferente do evento <code>pull_request</code> convencional, o <code>pull_request_target</code> é executado no contexto do repositório base com acesso a todos os segredos. Ao associar esse evento a uma ação de checkout apontada para o commit do fork externo (<code>head.sha</code>), o runner executa código arbitrário enviado por qualquer invasor externo, resultando em exfiltração imediata de credenciais.</p>
+<p>A blindagem definitiva de pipelines exige a aplicação integral de três pilares inegociáveis: a imposição de permissões mínimas no topo do arquivo (<code>permissions: contents: read</code>), o <strong>Pinning</strong> estrito de todas as actions de terceiros por commit SHA de 40 caracteres com hash imutável e a restrição de conexões de rede de saída (egress filtering) para impedir a exfiltração de dados durante a etapa de build.</p>
+<div class="comparison-grid">
+<div class="comp-col vuln">
+<div class="comp-header">Pipeline CI/CD Vulnerável (Risco Crítico de Supply Chain)</div>
+<ul class="comp-list">
+<li><span class="cross">✖</span> Gatilho pull_request_target com checkout de código externo não confiável.</li>
+<li><span class="cross">✖</span> Permissões write-all globais concedidas ao token de automação.</li>
+<li><span class="cross">✖</span> Actions externas consumidas via tags mutáveis (@v3, @main).</li>
+<li><span class="cross">✖</span> Injeção direta de expressões de contexto em blocos run de shell bash.</li>
+<li><span class="cross">✖</span> Tráfego irrestrito de saída do runner sem egress filtering.</li>
+</ul>
+</div>
+<div class="comp-col hard">
+<div class="comp-header">Pipeline Blindado TAVARDT (Defesa em Profundidade e Zero Trust)</div>
+<ul class="comp-list">
+<li><span class="check">✔</span> Gatilho pull_request tradicional sem acesso a secrets corporativos.</li>
+<li><span class="check">✔</span> Bloco permissions: contents: read declarativo com menor privilégio por job.</li>
+<li><span class="check">✔</span> Todas as actions fixadas exclusivamente por commit SHA de 40 caracteres.</li>
+<li><span class="check">✔</span> Passagem obrigatória de dados de contexto via variáveis de ambiente (env:).</li>
+<li><span class="check">✔</span> Bloqueio rigoroso de conexões externas não mapeadas durante a compilação.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class="faq-section">
+<h2 class="faq-title">Perguntas Frequentes sobre Segurança CI/CD &amp; Supply Chain</h2>
+<div class="faq-list">
+<div class="faq-item">
+<button class="faq-btn" onclick="toggleFaq(this)" type="button">
+<span>Por que o gatilho pull_request_target é considerado de risco crítico no GitHub Actions?</span>
+<span class="faq-icon">+</span>
+</button>
+<div class="faq-body">
             O gatilho pull_request_target é executado no contexto do repositório base com privilégios de escrita e acesso irrestrito aos segredos corporativos. Se o workflow fizer checkout do commit ou ref do fork externo sem isolamento prévio, invasores externos conseguem injetar comandos maliciosos e exfiltrar credenciais de produção.
           </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-btn" onclick="toggleFaq(this)" type="button">
-            <span>Qual é o perigo de utilizar tags mutáveis (ex: @v3 ou @main) em actions de terceiros?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-body">
+</div>
+<div class="faq-item">
+<button class="faq-btn" onclick="toggleFaq(this)" type="button">
+<span>Qual é o perigo de utilizar tags mutáveis (ex: @v3 ou @main) em actions de terceiros?</span>
+<span class="faq-icon">+</span>
+</button>
+<div class="faq-body">
             Tags no Git são referências mutáveis que podem ser reescritas ou apontadas para outros commits sem aviso. Se a conta do desenvolvedor ou organização responsável pela action for invadida, o atacante pode sobrescrever a tag @v3 com código de exfiltração de dados. A defesa definitiva exige o Pinning por commit SHA de 40 caracteres imutável.
           </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-btn" onclick="toggleFaq(this)" type="button">
-            <span>O que é a política de privilégio mínimo em tokens de automação (GITHUB_TOKEN)?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-body">
+</div>
+<div class="faq-item">
+<button class="faq-btn" onclick="toggleFaq(this)" type="button">
+<span>O que é a política de privilégio mínimo em tokens de automação (GITHUB_TOKEN)?</span>
+<span class="faq-icon">+</span>
+</button>
+<div class="faq-body">
             Historicamente, o token padrão herdava privilégios de escrita irrestritos (write-all). A política de privilégio mínimo impõe a declaração de permissions: contents: read no escopo superior do arquivo, liberando permissões granulares apenas para os jobs que comprovadamente necessitem publicar pacotes ou criar releases.
           </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-btn" onclick="toggleFaq(this)" type="button">
-            <span>Como evitar injeção de comandos bash em blocos run: do GitHub Actions?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-body">
+</div>
+<div class="faq-item">
+<button class="faq-btn" onclick="toggleFaq(this)" type="button">
+<span>Como evitar injeção de comandos bash em blocos run: do GitHub Actions?</span>
+<span class="faq-icon">+</span>
+</button>
+<div class="faq-body">
             Nunca interpole expressões de contexto do GitHub (como ${ github.event.pull_request.title }) diretamente no corpo de scripts shell. Em vez disso, passe o valor para variáveis de ambiente (env:) e consuma como uma variável padrão de shell ($PR_TITLE), impedindo que delimitadores de comando sejam executados.
           </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-btn" onclick="toggleFaq(this)" type="button">
-            <span>Como auditar a segurança dos meus pipelines de CI/CD de forma determinística?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-body">
+</div>
+<div class="faq-item">
+<button class="faq-btn" onclick="toggleFaq(this)" type="button">
+<span>Como auditar a segurança dos meus pipelines de CI/CD de forma determinística?</span>
+<span class="faq-icon">+</span>
+</button>
+<div class="faq-body">
             Execute o utilitário oficial audit_ci_cd_security.py diretamente no terminal local ou na esteira de CI/CD. O script realiza análise estática determinística da árvore de workflows YAML, inspecionando permissões, pinning de actions e higienização de variáveis de contexto sem requisições externas.
           </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="cta-card">
-      <h3>Precisa de Blindagem Profissional para Pipelines de CI/CD e Software Supply Chain?</h3>
-      <p>A equipe de engenharia e cibersegurança da TAVARDT audita a integridade dos seus workflows, implementa pinning imutável de actions, isola gatilhos de pull request e configura políticas restritivas de tokens e egress network em até 24 horas.</p>
-      <div class="cta-btns">
-        <a class="btn-wa" href="https://wa.me/5584987721775?text=Ol%C3%A1%20Sofia%2C%20consultei%20o%20CI/CD%20Security%20Auditor%20da%20TAVARDT%20e%20gostaria%20de%20apoio%20t%C3%A9cnico%20para%20blindagem%20dos%20meus%20pipelines." rel="noopener" target="_blank">Atendimento Direto com a Sofia (WhatsApp)</a>
-        <a class="btn-corp" href="https://ag.tavardt.com/pt/ciberseguranca/" rel="noopener" target="_blank">Ver Serviços de Cibersegurança</a>
-      </div>
-    </div>
-  </main>
-
-  <footer class="tavardt-footer">
-    <div class="tavardt-footer-inner">
-      <div class="tavardt-footer-col">
-        <div class="tavardt-footer-logo">TAVARDT<span class="tavardt-brand-dot">.</span></div>
-        <p class="tavardt-footer-mission">Transformamos negócios invisíveis em marcas reconhecidas e seguras no mercado digital.</p>
-      </div>
-      <div class="tavardt-footer-col">
-        <div class="tavardt-footer-heading">Navegação Regional</div>
-        <ul class="tavardt-footer-links">
-          <li><a href="https://ag.tavardt.com/pt/" rel="noopener" target="_blank">Portal</a></li>
-          <li><a href="https://tools.tavardt.com/pt/" rel="noopener" target="_blank">Ferramentas</a></li>
-          <li><a href="https://ag.tavardt.com/pt/contacto/" rel="noopener" target="_blank">Contato</a></li>
-        </ul>
-      </div>
-      <div class="tavardt-footer-col">
-        <div class="tavardt-footer-heading">Governança &amp; Conformidade</div>
-        <p class="tavardt-footer-compliance-text">Arquitetura defensiva e controles de cibersegurança em conformidade com as diretrizes CIS Benchmarks, OWASP Top 10 e padrões Zero Trust.</p>
-      </div>
-    </div>
-    <div class="tavardt-footer-bottom">
-      <p>&copy; 2026 TAVARDT. Todos os direitos reservados.</p>
-    </div>
-  </footer>
-
-  <script>
+</div>
+</div>
+</section>
+<div class="cta-card">
+<h3>Precisa de Blindagem Profissional para Pipelines de CI/CD e Software Supply Chain?</h3>
+<p>A equipa de engenharia e cibersegurança da TAVARDT audita a integridade dos seus workflows, implementa pinning imutável de actions, isola gatilhos de pull request e configura políticas restritivas de tokens e egress network em até 24 horas.</p>
+<div class="cta-btns">
+<a class="btn-wa" href="https://wa.me/5584987721775?text=Ol%C3%A1%20Sofia%2C%20consultei%20o%20CI/CD%20Security%20Auditor%20da%20TAVARDT%20e%20gostaria%20de%20apoio%20t%C3%A9cnico%20para%20blindagem%20dos%20meus%20pipelines." rel="noopener" target="_blank">Atendimento Direto com a Sofia (WhatsApp)</a>
+<a class="btn-corp" href="https://ag.tavardt.com/pt/ciberseguranca/" rel="noopener" target="_blank">Ver Serviços de Cibersegurança</a>
+</div>
+</div>
+</main>
+<footer class="tavardt-footer">
+<div class="tavardt-footer-inner">
+<div class="tavardt-footer-col">
+<div class="tavardt-footer-logo">TAVARDT<span class="tavardt-brand-dot">.</span></div>
+<p class="tavardt-footer-mission">Transformamos negócios invisíveis em marcas reconhecidas e seguras no mercado digital.</p>
+</div>
+<div class="tavardt-footer-col">
+<div class="tavardt-footer-heading">Navegação Regional</div>
+<ul class="tavardt-footer-links">
+<li><a href="https://ag.tavardt.com/pt/" rel="noopener" target="_blank">Portal</a></li>
+<li><a href="https://tools.tavardt.com/pt/" rel="noopener" target="_blank">Ferramentas</a></li>
+<li><a href="https://ag.tavardt.com/pt/contacto/" rel="noopener" target="_blank">Contato</a></li>
+</ul>
+</div>
+<div class="tavardt-footer-col">
+<div class="tavardt-footer-heading">Governança &amp; Conformidade</div>
+<p class="tavardt-footer-compliance-text">Arquitetura defensiva e controles de cibersegurança em conformidade com as diretrizes CIS Benchmarks, OWASP Top 10 e padrões Zero Trust.</p>
+</div>
+</div>
+<div class="tavardt-footer-bottom">
+<p>© 2026 TAVARDT. Todos os direitos reservados.</p>
+</div>
+</footer>
+<script>
     let currentScenario = 'vuln';
     let activeTab = 'actions';
 
@@ -1397,12 +1362,12 @@ if __name__ == "__main__":
       const data = scenariosData[scen];
       const badge = document.getElementById('posture-badge');
       badge.className = 'posture-badge ' + data.badgeClass;
-      badge.innerText = data.badgeText;
-      document.getElementById('posture-mode-tag').innerText = data.modeTag;
-      document.getElementById('posture-summary').innerText = data.summary;
+      badge.textContent = data.badgeText;
+      document.getElementById('posture-mode-tag').textContent = data.modeTag;
+      document.getElementById('posture-summary').textContent = data.summary;
 
       const findingsCount = document.getElementById('findings-count');
-      findingsCount.innerText = data.findingsCount;
+      findingsCount.textContent = data.findingsCount;
       findingsCount.style.color = data.findingsCountColor;
 
       const tbody = document.getElementById('routes-tbody');
@@ -1418,7 +1383,7 @@ if __name__ == "__main__":
       data.findings.forEach(f => {
         const item = document.createElement('div');
         item.className = 'finding-item ' + f.type;
-        item.innerText = (f.type === 'ok' ? '[CONFORME] ' : '[ALERTA CRÍTICO] ') + f.text;
+        item.textContent = (f.type === 'ok' ? '[CONFORME] ' : '[ALERTA CRÍTICO] ') + f.text;
         fList.appendChild(item);
       });
     }
@@ -1432,36 +1397,36 @@ if __name__ == "__main__":
       if (sel) sel.value = tab;
       const box = document.getElementById('code-box');
       if (box && codeTemplates[tab]) {
-        box.innerText = codeTemplates[tab];
+        box.textContent = codeTemplates[tab];
       }
     }
 
     function copyCode() {
       const code = codeTemplates[activeTab];
       if (!code) return;
-      navigator.clipboard.writeText(code).then(() => {
+      if (navigator.clipboard) navigator.clipboard.writeText(code).catch(() => {}).then(() => {
         const btnDesktop = document.getElementById('btn-copy-code');
         const btnMobile = document.getElementById('btn-copy-code-mobile');
         if (btnDesktop) {
           const orig = btnDesktop.innerText;
-          btnDesktop.innerText = 'Copiado!';
-          setTimeout(() => { btnDesktop.innerText = orig; }, 2000);
+          btnDesktop.textContent = 'Copiado!';
+          setTimeout(() => { btnDesktop.textContent = orig; }, 2000);
         }
         if (btnMobile) {
           const orig = btnMobile.innerText;
-          btnMobile.innerText = 'Copiado!';
-          setTimeout(() => { btnMobile.innerText = orig; }, 2000);
+          btnMobile.textContent = 'Copiado!';
+          setTimeout(() => { btnMobile.textContent = orig; }, 2000);
         }
       });
     }
 
     function copyCliCommand() {
       const code = document.getElementById('cli-terminal-code').innerText;
-      navigator.clipboard.writeText(code).then(() => {
+      if (navigator.clipboard) navigator.clipboard.writeText(code).catch(() => {}).then(() => {
         const btn = document.getElementById('btn-copy-cli');
         const orig = btn.innerText;
-        btn.innerText = 'Copiado!';
-        setTimeout(() => { btn.innerText = orig; }, 2000);
+        btn.textContent = 'Copiado!';
+        setTimeout(() => { btn.textContent = orig; }, 2000);
       });
     }
 
