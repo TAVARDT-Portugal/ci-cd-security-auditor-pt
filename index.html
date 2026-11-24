@@ -8,19 +8,7 @@
 <meta content="Guia técnico corporativo de arquitetura defensiva, imunização de pipelines (GitHub Actions, GitLab CI), mitigação de gatilhos perigosos (pull_request_target) e ferramental CLI determinístico." name="description"/>
 <link href="https://tavardt-portugal.github.io/ci-cd-security-auditor-pt/" rel="canonical"/>
 <link href="./favicon.ico" rel="icon" type="image/x-icon"/>
-
-
-
 <link href="https://tavardt-portugal.github.io/ci-cd-security-auditor-pt/" hreflang="pt-PT" rel="alternate"/>
-
-
-
-
-
-
-
-
-
 <link href="https://tavardt-usa.github.io/ci-cd-security-auditor-us/" hreflang="x-default" rel="alternate"/>
 <meta content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" name="robots"/>
 <meta content="citable-security-tool" name="ai-content-declaration"/>
@@ -40,16 +28,6 @@
 <meta content="630" property="og:image:height"/>
 <meta content="Auditoria de Segurança CI/CD &amp; Hardening de Software Supply Chain | TAVARDT Portugal" property="og:image:alt"/>
 <meta content="pt_PT" property="og:locale"/>
-
-
-
-
-
-
-
-
-
-
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="@tavardt" name="twitter:site"/>
 <meta content="Auditoria de Segurança CI/CD &amp; Hardening de Software Supply Chain | TAVARDT Portugal" name="twitter:title"/>
@@ -985,7 +963,7 @@
 <header class="tavardt-header">
 <div class="tavardt-header-inner">
 <a class="tavardt-brand" href="https://ag.tavardt.com/pt/" rel="noopener" target="_blank">
-<span class="tavardt-logo-text">TAVARDT<span class="tavardt-brand-dot">.</span></span>
+<span class="tavardt-logo-text">TAVARDT</span>
 </a>
 <nav class="tavardt-nav">
 <a class="tavardt-nav-link" href="https://ag.tavardt.com/pt/" rel="noopener" target="_blank">Portal</a>
@@ -1001,9 +979,9 @@
 <div class="cli-card">
 <div class="cli-header">
 <div class="cli-dots">
-<span class="dot red"></span>
-<span class="dot yellow"></span>
-<span class="dot green"></span>
+
+
+
 <span class="cli-title">Testes em terminal Local CLI</span>
 </div>
 <button class="btn-copy" id="btn-copy-cli" onclick="copyCliCommand()" type="button">Copiar</button>
@@ -1119,53 +1097,7 @@ python audit_ci_cd_security.py .github/workflows/</div>
 </section>
 <section class="faq-section">
 <h2 class="faq-title">Perguntas Frequentes sobre Segurança CI/CD &amp; Supply Chain</h2>
-<div class="faq-list">
-<div class="faq-item">
-<button class="faq-btn" onclick="toggleFaq(this)" type="button">
-<span>Por que o gatilho pull_request_target é considerado de risco crítico no GitHub Actions?</span>
-<span class="faq-icon">+</span>
-</button>
-<div class="faq-body">
-            O gatilho pull_request_target é executado no contexto do repositório base com privilégios de escrita e acesso irrestrito aos segredos corporativos. Se o workflow fizer checkout do commit ou ref do fork externo sem isolamento prévio, invasores externos conseguem injetar comandos maliciosos e exfiltrar credenciais de produção.
-          </div>
-</div>
-<div class="faq-item">
-<button class="faq-btn" onclick="toggleFaq(this)" type="button">
-<span>Qual é o perigo de utilizar tags mutáveis (ex: @v3 ou @main) em actions de terceiros?</span>
-<span class="faq-icon">+</span>
-</button>
-<div class="faq-body">
-            Tags no Git são referências mutáveis que podem ser reescritas ou apontadas para outros commits sem aviso. Se a conta do desenvolvedor ou organização responsável pela action for invadida, o atacante pode sobrescrever a tag @v3 com código de exfiltração de dados. A defesa definitiva exige o Pinning por commit SHA de 40 caracteres imutável.
-          </div>
-</div>
-<div class="faq-item">
-<button class="faq-btn" onclick="toggleFaq(this)" type="button">
-<span>O que é a política de privilégio mínimo em tokens de automação (GITHUB_TOKEN)?</span>
-<span class="faq-icon">+</span>
-</button>
-<div class="faq-body">
-            Historicamente, o token padrão herdava privilégios de escrita irrestritos (write-all). A política de privilégio mínimo impõe a declaração de permissions: contents: read no escopo superior do arquivo, liberando permissões granulares apenas para os jobs que comprovadamente necessitem publicar pacotes ou criar releases.
-          </div>
-</div>
-<div class="faq-item">
-<button class="faq-btn" onclick="toggleFaq(this)" type="button">
-<span>Como evitar injeção de comandos bash em blocos run: do GitHub Actions?</span>
-<span class="faq-icon">+</span>
-</button>
-<div class="faq-body">
-            Nunca interpole expressões de contexto do GitHub (como ${ github.event.pull_request.title }) diretamente no corpo de scripts shell. Em vez disso, passe o valor para variáveis de ambiente (env:) e consuma como uma variável padrão de shell ($PR_TITLE), impedindo que delimitadores de comando sejam executados.
-          </div>
-</div>
-<div class="faq-item">
-<button class="faq-btn" onclick="toggleFaq(this)" type="button">
-<span>Como auditar a segurança dos meus pipelines de CI/CD de forma determinística?</span>
-<span class="faq-icon">+</span>
-</button>
-<div class="faq-body">
-            Execute o utilitário oficial audit_ci_cd_security.py diretamente no terminal local ou na esteira de CI/CD. O script realiza análise estática determinística da árvore de workflows YAML, inspecionando permissões, pinning de actions e higienização de variáveis de contexto sem requisições externas.
-          </div>
-</div>
-</div>
+<div class="faq-list"><div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)" type="button">Por que o gatilho pull_request_target é considerado de risco crítico no GitHub Actions?<span class="faq-icon">+</span></button><div class="faq-body">O gatilho pull_request_target é executado no contexto do repositório base com privilégios de escrita e acesso irrestrito aos segredos corporativos. Se o workflow fizer checkout do commit ou ref do fork externo sem isolamento prévio, invasores externos conseguem injetar comandos maliciosos e exfiltrar credenciais de produção.</div></div><div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)" type="button">Qual é o perigo de utilizar tags mutáveis (ex: @v3 ou @main) em actions de terceiros?<span class="faq-icon">+</span></button><div class="faq-body">Tags no Git são referências mutáveis que podem ser reescritas ou apontadas para outros commits sem aviso. Se a conta do desenvolvedor ou organização responsável pela action for invadida, o atacante pode sobrescrever a tag @v3 com código de exfiltração de dados. A defesa definitiva exige o Pinning por commit SHA de 40 caracteres imutável.</div></div><div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)" type="button">O que é a política de privilégio mínimo em tokens de automação (GITHUB_TOKEN)?<span class="faq-icon">+</span></button><div class="faq-body">Historicamente, o token padrão herdava privilégios de escrita irrestritos (write-all). A política de privilégio mínimo impõe a declaração de permissions: contents: read no escopo superior do arquivo, liberando permissões granulares apenas para os jobs que comprovadamente necessitem publicar pacotes ou criar releases.</div></div><div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)" type="button">Como evitar injeção de comandos bash em blocos run: do GitHub Actions?<span class="faq-icon">+</span></button><div class="faq-body">Nunca interpole expressões de contexto do GitHub (como ${ github.event.pull_request.title }) diretamente no corpo de scripts shell. Em vez disso, passe o valor para variáveis de ambiente (env:) e consuma como uma variável padrão de shell ($PR_TITLE), impedindo que delimitadores de comando sejam executados.</div></div><div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)" type="button">Como auditar a segurança dos meus pipelines de CI/CD de forma determinística?<span class="faq-icon">+</span></button><div class="faq-body">Execute o utilitário oficial audit_ci_cd_security.py diretamente no terminal local ou na esteira de CI/CD. O script realiza análise estática determinística da árvore de workflows YAML, inspecionando permissões, pinning de actions e higienização de variáveis de contexto sem requisições externas.</div></div></div>
 </section>
 <div class="cta-card">
 <h3>Precisa de Blindagem Profissional para Pipelines de CI/CD e Software Supply Chain?</h3>
@@ -1179,7 +1111,7 @@ python audit_ci_cd_security.py .github/workflows/</div>
 <footer class="tavardt-footer">
 <div class="tavardt-footer-inner">
 <div class="tavardt-footer-col">
-<div class="tavardt-footer-logo">TAVARDT<span class="tavardt-brand-dot">.</span></div>
+<div class="tavardt-footer-logo">TAVARDT</div>
 <p class="tavardt-footer-mission">Transformamos negócios invisíveis em marcas reconhecidas e seguras no mercado digital.</p>
 </div>
 <div class="tavardt-footer-col">
