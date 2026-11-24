@@ -1,46 +1,58 @@
-# Auditor de Segurança CI/CD e Hardening da Cadeia de Suprimentos de Software
+# Auditor de Segurança CI/CD e Hardening da Cadeia de Fornecimento de Software
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-5b3cf5.svg)](https://tavardt-portugal.github.io/ci-cd-security-auditor-pt/)
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
-[![Standards](https://img.shields.io/badge/Standards-CIS%20%7C%20OWASP%20CI%2FCD-blue.svg)](https://tavardt-portugal.github.io/ci-cd-security-auditor-pt/)
+[![CIS Benchmark](https://img.shields.io/badge/CIS-Benchmark-blue.svg)](https://www.cisecurity.org/)
+[![OpenSSF](https://img.shields.io/badge/OpenSSF-Scorecard-green.svg)](https://openssf.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-Guia técnico de engenharia e central corporativa de cibersegurança defensiva para auditoria e imunização de pipelines de automação (GitHub Actions, GitLab CI) e mitigação contra ataques de Software Supply Chain.
+**Auditoria de Pipelines GitHub Actions, Políticas de Segurança e Defesa contra Envenenamento de Dependências**
+
+Desenvolvido e mantido pela divisão de segurança em infraestrutura e DevSecOps da TAVARDT Portugal.
 
 ***
 
-## Sumário Executivo
+## Portais e Demonstração Online
 
-Este repositório fornece a especificação arquitetural de segurança defensiva, matriz técnica comparativa de posturas de execução e um utilitário CLI determinístico desenvolvido em Python para validação estrutural de manifestos YAML de CI/CD.
+Aceda à ferramenta interativa oficial e aos canais soberanos da TAVARDT:
 
-* **Organização:** TAVARDT
-* **Hub Oficial:** [https://tavardt-portugal.github.io/ci-cd-security-auditor-pt/](https://tavardt-portugal.github.io/ci-cd-security-auditor-pt/)
-* **Padrões de Referência:** CIS Software Supply Chain Security Guide, OWASP Top 10 for CI/CD, SLSA Framework Level 3.
-
-***
-
-## Vetores Críticos Inspecionados
-
-1. **Gatilhos Privilegiados (`pull_request_target`):** Detecção de checkout de refs não confiáveis em workflows com acesso a secrets.
-2. **Permissões Globais Excessivas (`write-all`):** Imposição da política de privilégio mínimo (`permissions: contents: read`).
-3. **Actions de Terceiros sem Pinning Imutável:** Identificação de tags mutáveis (`@v3`, `@main`) e conversão para commits SHA de 40 caracteres.
-4. **Injeção de Expressões em Scripts Shell:** Sanitização de variáveis de contexto do GitHub em blocos `run:`.
-5. **Egress Network Filtering:** Monitoramento e bloqueio de exfiltração de credenciais em runtime de compilação.
+* **Aplicação Web Oficial no GitHub Pages**: [https://tavardt-portugal.github.io/ci-cd-security-auditor-pt/](https://tavardt-portugal.github.io/ci-cd-security-auditor-pt/)
+* **Portal Institucional**: [https://ag.tavardt.com/pt/](https://ag.tavardt.com/pt/)
+* **Central de Ferramentas**: [https://tools.tavardt.com/pt/](https://tools.tavardt.com/pt/)
 
 ***
 
-## Execução do Utilitário CLI
+## Blueprints Técnicos e Recursos Disponíveis
 
-Para executar a auditoria determinística diretamente no terminal ou integrar à esteira corporativa:
+1. **Aplicação Web Interativa**: Diagnóstico determinístico, cálculo de postura defensiva e recomendações imediatas no navegador.
+2. **Utilitário CLI Local**: Script Python determinístico executado diretamente no ambiente de produção para auditoria offline.
+3. **Especificações de Segurança**: Manifestos e configurações de hardening em conformidade com as normas internacionais.
+
+***
+
+## Uso do Utilitário CLI Determinístico
+
+Para executar a inspeção técnica no ambiente local:
 
 ```bash
-# 1. Obter o script oficial
-curl -sO https://raw.githubusercontent.com/TAVARDT-Portugal/ci-cd-security-auditor-pt/main/audit_ci_cd_security.py
-
-# 2. Executar análise estática contra workflows locais
-python audit_ci_cd_security.py .github/workflows/
+git clone https://github.com/TAVARDT-Portugal/ci-cd-security-auditor-pt.git
+cd ci-cd-security-auditor-pt
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python3 scanner.py -json
 ```
 
 ***
 
-© 2026 TAVARDT. Todos os direitos reservados.
+## Governança e Conformidade
+
+* **Organização**: TAVARDT-Portugal
+* **Jurisdição**: Portugal
+* **Padrões de Referência**: Normas e frameworks técnicos auditados em estrita observância das regras de soberania.
+
+Desenvolvido pela Divisão de Cibersegurança e Infraestrutura da TAVARDT Portugal. Todos os direitos reservados.
+
+***
+
+© 2026 TAVARDT Portugal. Todos os direitos reservados. Soberania e Defesa de Infraestrutura.
